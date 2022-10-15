@@ -1,47 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Core.Histogram
 {
     public class Histogram
     {
-        public static IDictionary<double, int> BuildHistogram(IList<double> numbers, double interval)
+        public static double[] BuildHistogram(IList<double> numbers)
         {
             if (numbers.Count == 0)
             {
                 throw new ArgumentException(nameof(numbers));
             }
 
-            var min = double.MaxValue;
-            var max = double.MinValue;
-            foreach (var number in numbers)
-            {
-                min = Math.Min(min, number);
-                max = Math.Max(max, number);
-            }
+            var rMin = numbers.Min();
+            var rMax = numbers.Max();
+            var levelCountArray = new int[20];
 
-            var levelsSize = GetLevel(max, min, interval) + 1;
-            var levels = new int[levelsSize];
-            foreach (var number in numbers)
+            double delta = (rMax - rMin) / levelCountArray.Length;
+
+            for (int i = 0; i < levelCountArray.Length; i++)
             {
-                var level = GetLevel(number, min, interval);
-                levels[level]++;
-            }
-            var historgam = new Dictionary<double, int>();
-            for (int level = 0; level < levelsSize; level++)
-            {
-                var count = levels[level];
-                if (count != 0)
+                double a = rMin + i * delta;
+                double b = rMin + (i + 1) * delta;
+
+                foreach (var number in numbers)
                 {
-                    historgam.Add(level * interval, count);
+                    if (number > a && number < b)
+                    {
+                        levelCountArray[i]++;
+                    }
                 }
             }
-            return historgam;
-        }
 
-        private static int GetLevel(double number, double min, double interval)
-        {
-            return (int)((number - min) / interval);
+            return levelCountArray
+                .Select(count => (double)count / numbers.Count)
+                .ToArray();
         }
     }
 }

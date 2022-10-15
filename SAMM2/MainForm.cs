@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Numerics;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -123,13 +124,13 @@ namespace SAMM1
         private void UpdateChart(Series series, IList<double> numbers)
         {
             var interval = decimal.ToDouble(intervalInput.Value);
-            var histogram = Histogram.BuildHistogram(numbers, interval);
+            var histogram = Histogram.BuildHistogram(numbers);
             if (histogram is null)
                 return;
             series.Points.Clear();
-            foreach (var pair in histogram)
+            for (int i = 0; i < histogram.Length; i++)
             {
-                series.Points.AddXY(pair.Value, Math.Round(pair.Key, 3));
+                series.Points.AddXY(i + 1, histogram[i]);
             }
             chart.ResetAutoValues();
         }

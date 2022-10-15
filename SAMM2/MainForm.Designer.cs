@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.expTablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.expLambdaLabel = new System.Windows.Forms.Label();
             this.expLambdaInput = new System.Windows.Forms.NumericUpDown();
@@ -71,8 +71,6 @@
             this.paramsTablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.distributionCountLabel = new System.Windows.Forms.Label();
             this.distributionCountInput = new System.Windows.Forms.NumericUpDown();
-            this.intervalLabel = new System.Windows.Forms.Label();
-            this.intervalInput = new System.Windows.Forms.NumericUpDown();
             this.distributionsPanel = new System.Windows.Forms.TabControl();
             this.expPage = new System.Windows.Forms.TabPage();
             this.gammaPage = new System.Windows.Forms.TabPage();
@@ -120,7 +118,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.srSeedInput)).BeginInit();
             this.paramsTablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.distributionCountInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.intervalInput)).BeginInit();
             this.distributionsPanel.SuspendLayout();
             this.expPage.SuspendLayout();
             this.gammaPage.SuspendLayout();
@@ -579,7 +576,7 @@
             this.toolsPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.toolsPanel.Location = new System.Drawing.Point(3, 3);
             this.toolsPanel.Name = "toolsPanel";
-            this.toolsPanel.Size = new System.Drawing.Size(414, 405);
+            this.toolsPanel.Size = new System.Drawing.Size(414, 377);
             this.toolsPanel.TabIndex = 9;
             // 
             // randomsPanel
@@ -766,8 +763,6 @@
             this.paramsTablePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.paramsTablePanel.Controls.Add(this.distributionCountLabel, 0, 0);
             this.paramsTablePanel.Controls.Add(this.distributionCountInput, 1, 0);
-            this.paramsTablePanel.Controls.Add(this.intervalLabel, 0, 1);
-            this.paramsTablePanel.Controls.Add(this.intervalInput, 1, 1);
             this.paramsTablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.paramsTablePanel.Location = new System.Drawing.Point(3, 128);
             this.paramsTablePanel.Name = "paramsTablePanel";
@@ -775,7 +770,7 @@
             this.paramsTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.paramsTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.paramsTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.paramsTablePanel.Size = new System.Drawing.Size(408, 56);
+            this.paramsTablePanel.Size = new System.Drawing.Size(408, 28);
             this.paramsTablePanel.TabIndex = 14;
             // 
             // distributionCountLabel
@@ -819,48 +814,6 @@
             0});
             this.distributionCountInput.ValueChanged += new System.EventHandler(this.DistributorChanged);
             // 
-            // intervalLabel
-            // 
-            this.intervalLabel.AutoSize = true;
-            this.intervalLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.intervalLabel.Location = new System.Drawing.Point(3, 31);
-            this.intervalLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.intervalLabel.Name = "intervalLabel";
-            this.intervalLabel.Size = new System.Drawing.Size(198, 22);
-            this.intervalLabel.TabIndex = 4;
-            this.intervalLabel.Text = "Interval";
-            this.intervalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // intervalInput
-            // 
-            this.intervalInput.DecimalPlaces = 5;
-            this.intervalInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.intervalInput.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.intervalInput.Location = new System.Drawing.Point(207, 31);
-            this.intervalInput.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.intervalInput.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            327680});
-            this.intervalInput.Name = "intervalInput";
-            this.intervalInput.Size = new System.Drawing.Size(198, 22);
-            this.intervalInput.TabIndex = 5;
-            this.intervalInput.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            196608});
-            this.intervalInput.ValueChanged += new System.EventHandler(this.DistributorChanged);
-            // 
             // distributionsPanel
             // 
             this.distributionsPanel.Controls.Add(this.expPage);
@@ -869,7 +822,7 @@
             this.distributionsPanel.Controls.Add(this.simpsonPage);
             this.distributionsPanel.Controls.Add(this.triangularPage);
             this.distributionsPanel.Controls.Add(this.uniformPage);
-            this.distributionsPanel.Location = new System.Drawing.Point(3, 190);
+            this.distributionsPanel.Location = new System.Drawing.Point(3, 162);
             this.distributionsPanel.Name = "distributionsPanel";
             this.distributionsPanel.SelectedIndex = 0;
             this.distributionsPanel.Size = new System.Drawing.Size(407, 119);
@@ -1079,7 +1032,7 @@
             this.statisticPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.statisticPanel.Controls.Add(this.statisticTablePanel);
             this.statisticPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.statisticPanel.Location = new System.Drawing.Point(3, 315);
+            this.statisticPanel.Location = new System.Drawing.Point(3, 287);
             this.statisticPanel.Name = "statisticPanel";
             this.statisticPanel.Size = new System.Drawing.Size(408, 87);
             this.statisticPanel.TabIndex = 5;
@@ -1191,14 +1144,14 @@
             // 
             // chart
             // 
-            chartArea8.Name = "ChartArea";
-            this.chart.ChartAreas.Add(chartArea8);
+            chartArea1.Name = "ChartArea";
+            this.chart.ChartAreas.Add(chartArea1);
             this.chart.Location = new System.Drawing.Point(423, 3);
             this.chart.Name = "chart";
-            series8.ChartArea = "ChartArea";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
-            series8.Name = "DistributorSeries";
-            this.chart.Series.Add(series8);
+            series1.ChartArea = "ChartArea";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series1.Name = "DistributorSeries";
+            this.chart.Series.Add(series1);
             this.chart.Size = new System.Drawing.Size(900, 600);
             this.chart.TabIndex = 10;
             this.chart.Text = "Distribution";
@@ -1245,7 +1198,6 @@
             this.paramsTablePanel.ResumeLayout(false);
             this.paramsTablePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.distributionCountInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.intervalInput)).EndInit();
             this.distributionsPanel.ResumeLayout(false);
             this.expPage.ResumeLayout(false);
             this.expPage.PerformLayout();
@@ -1355,8 +1307,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
         private System.Windows.Forms.Label distributionCountLabel;
         private System.Windows.Forms.NumericUpDown distributionCountInput;
-        private System.Windows.Forms.Label intervalLabel;
-        private System.Windows.Forms.NumericUpDown intervalInput;
     }
 }
 
