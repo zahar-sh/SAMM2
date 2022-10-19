@@ -281,6 +281,7 @@
             0,
             0,
             0});
+            this.gammaEtaInput.ValueChanged += new System.EventHandler(this.GammaChanged);
             // 
             // simpsonTablePanel
             // 

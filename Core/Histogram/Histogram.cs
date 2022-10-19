@@ -8,10 +8,8 @@ namespace Core.Histogram
     {
         public static double[] BuildHistogram(IList<double> numbers)
         {
-            if (numbers.Count == 0)
-            {
-                throw new ArgumentException(nameof(numbers));
-            }
+            if (numbers is null || numbers.Count == 0)
+                return null;
 
             var rMin = numbers.Min();
             var rMax = numbers.Max();

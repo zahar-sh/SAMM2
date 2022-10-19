@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Numerics;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -123,7 +122,6 @@ namespace SAMM1
 
         private void UpdateChart(Series series, IList<double> numbers)
         {
-            var interval = decimal.ToDouble(intervalInput.Value);
             var histogram = Histogram.BuildHistogram(numbers);
             if (histogram is null)
                 return;
